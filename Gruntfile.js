@@ -8,9 +8,6 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
-    grunt.loadNpmTasks('grunt-build-control');
-
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
@@ -294,7 +291,20 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>/fonts/',
                     dest: '<%= yeoman.dist %>/fonts/',
                     src: '*.*'
-                }]
+                },{
+                        expand: true,
+                        dest: '<%= yeoman.dist %>',
+                        cwd: 'heroku',
+                        src: '*',
+                        rename: function (dest, src) {
+                            var path = require('path');
+                            if (src === 'distpackage.json') {
+                                return path.join(dest, 'package.json');
+                            }
+                            return path.join(dest, src);
+                        }
+                    }
+                ]
             },
             styles: {
                 files: [{
@@ -310,25 +320,7 @@ module.exports = function (grunt) {
                     dest: '.tmp/fonts/',
                     src: '*.*'
                 }]
-            },
-             copy: {
-                dist: {
-                    files: [{
-                        expand: true,
-                        dest: '<%= yeoman.dist %>',
-                        cwd: 'heroku',
-                        src: '*',
-                        rename: function (dest, src) {
-                            var path = require('path');
-                            if (src === 'distpackage.json') {
-                                return path.join(dest, 'package.json');
-                            }
-                            return path.join(dest, src);
-                        }
-                    }]
-                }
             }
-
         },
 
 
@@ -422,37 +414,7 @@ module.exports = function (grunt) {
             'connect:test'
         ]);
     });
-    grunt.initConfig({
 
-      // Various Grunt tasks...
-
-      buildcontrol: {
-        options: {
-          dir: 'dist',
-          commit: true,
-          push: true,
-          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-        },
-        pages: {
-          options: {
-            remote: 'git@heroku.com:codegardener.git',
-            branch: 'gh-pages'
-          }
-        },
-        heroku: {
-          options: {
-            remote: 'git@heroku.com:codegardener.git',
-            branch: 'master'
-          }
-        },
-        local: {
-          options: {
-            remote: '../',
-            branch: 'build'
-          }
-        }
-      }
-    });
 
     grunt.registerTask('build', [
         'clean:dist',
