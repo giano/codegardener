@@ -1,0 +1,20 @@
+doctype 5
+html.no-js(lang='en')
+    head
+        include modules/head
+    body
+        include modules/templates
+        include modules/bootstrap
+        include modules/header
+
+        #wrap
+            div.container.news-cont
+                .row#articles
+
+
+        include modules/footer
+
+        include modules/scripts
+        // build:js scripts/home.js
+        script(src='scripts/home.js')
+        // endbuild

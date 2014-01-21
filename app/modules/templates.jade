@@ -1,0 +1,32 @@
+.templates
+
+    script(type="text/x-handlebars-template")#article_template
+        div(class="col-md-{{width}}")
+            article
+                .time-border
+                    i.fa.fa-calendar
+                    time(pubdate="pubdate", title="{{ago}}") &nbsp;{{pubdate}}
+                .a-content
+                    header
+                        h1 {{{title}}}
+                    .body-snippet
+                        {{{body_snippet}}}
+                    .body
+                        {{{body}}}
+                .bk-image
+
+    script(type="text/x-handlebars-template")#flower_template
+        .flower-template
+            .flower
+                img(src='/img/f_shadow.png').dot
+                .body
+                    .head
+                        .petals
+                            .petal.petal-1 {}
+                            .petal.petal-2 {}
+                            .petal.petal-3 {}
+                            .petal.petal-4 {}
+                            .petal.petal-5 {}
+                        .f_center *
+                    .line {{phrase}}
+                    .leaf ()

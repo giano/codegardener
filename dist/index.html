@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Garden</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
+    <link rel="stylesheet" href="styles/657ca627.main.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <script src="scripts/9dfcc0d3.modernizr.js"></script>
+  </head>
+  <body>
+    <div class="templates">
+      <script type="text/x-handlebars-template" id="article_template">
+        <div class="col-md-{{width}}">
+          <article>
+            <div class="time-border"><i class="fa fa-calendar"></i>
+              <time pubdate="pubdate" title="{{ago}}">&nbsp;{{pubdate}}</time>
+            </div>
+            <div class="a-content">
+              <header>
+                <h1>{{{title}}}</h1>
+              </header>
+              <div class="body-snippet">{{{body_snippet}}}</div>
+              <div class="body">{{{body}}}</div>
+            </div>
+            <div class="bk-image"></div>
+          </article>
+        </div>
+      </script>
+      <script type="text/x-handlebars-template" id="flower_template">
+        <div class="flower-template">
+          <div class="flower"><img src="/img/f_shadow.png" class="dot">
+            <div class="body">
+              <div class="head">
+                <div class="petals">
+                  <div class="petal petal-1">{}</div>
+                  <div class="petal petal-2">{}</div>
+                  <div class="petal petal-3">{}</div>
+                  <div class="petal petal-4">{}</div>
+                  <div class="petal petal-5">{}</div>
+                </div>
+                <div class="f_center">*</div>
+              </div>
+              <div class="line">{{phrase}}</div>
+              <div class="leaf">()</div>
+            </div>
+          </div>
+        </div>
+      </script>
+    </div>
+    <div class="parallax">
+      <div data-depth="0.00" class="c-back layer">
+        <div class="page">
+          <div class="flowers_container clearfix"></div>
+          <div class="background_container"></div>
+        </div>
+      </div>
+      <div data-depth="0.20" class="c-mid layer">
+        <div class="page">
+          <div class="flowers_container clearfix"></div>
+          <div class="background_container"></div>
+        </div>
+      </div>
+      <div data-depth="0.40" class="c-front layer">
+        <div class="page">
+          <div class="flowers_container clearfix"></div>
+          <div class="background_container"></div>
+          <div class="full_height">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+    <header class="header">
+      <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></span></button><a class="navbar-brand"><img src="/img/logo.png" srcset="/img/logo.png@2x 2x">
+              <h1>Code Garden</h1></a>
+          </div>
+          <div id="collapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Who?</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="wrap">
+      <div class="container news-cont">
+        <div id="articles" class="row"></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">Prova</p>
+      </div>
+    </footer>
+    <script src="scripts/d016a243.vendor.js"></script>
+    <script src="scripts/3174f2f8.main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.0/marked.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+    <script src="scripts/df6c699f.home.js"></script>
+  </body>
+</html>
