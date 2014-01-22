@@ -1,5 +1,9 @@
 $(->
-	$(".parallax").parallax
+    on_exit = ->
+        $("body").removeClass("reading")
+        $(".parallax").parallax("enable")
+
+	$(".parallax").on("touchstart",on_exit).parallax
 		limitY:50
 
 	flower_temp_html = $("#flower_template").html()
