@@ -19,8 +19,8 @@ $(->
                     md_title = $(marked(article.get("title"))).html()
                     new_article = template
                         title: md_title
-                        icon: article.get("icon") ? "fa fa-align-justify"
-                        class: if i%2 is 1 then "timeline-inverted" else null
+                        icon: article.get("icon") ? "fa fa-code"
+                        class: if i%2 is 1 then "timeline-inverted" else "timeline-standard"
                         image: article.get("image")
                         body: md_body
                         body_snippet: md_body_snippet
@@ -35,7 +35,7 @@ $(->
                         $("body").removeClass("reading")
                         $(".parallax").parallax("enable")
 
-                    new_article = $(new_article).appendTo("#articles").children("article").hover on_hover, on_exit
+                    new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit)
 
                     if article.get("code") or new_article.find(/<code>/i)
                         code_kind = article.get("code") ? "coffeescript"

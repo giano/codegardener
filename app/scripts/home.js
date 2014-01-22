@@ -28,8 +28,8 @@ $(function() {
           md_title = $(marked(article.get("title"))).html();
           new_article = template({
             title: md_title,
-            icon: (_ref1 = article.get("icon")) != null ? _ref1 : "fa fa-align-justify",
-            "class": i % 2 === 1 ? "timeline-inverted" : null,
+            icon: (_ref1 = article.get("icon")) != null ? _ref1 : "fa fa-code",
+            "class": i % 2 === 1 ? "timeline-inverted" : "timeline-standard",
             image: article.get("image"),
             body: md_body,
             body_snippet: md_body_snippet,
@@ -45,7 +45,7 @@ $(function() {
             $("body").removeClass("reading");
             return $(".parallax").parallax("enable");
           };
-          new_article = $(new_article).appendTo("#articles").children("article").hover(on_hover, on_exit);
+          new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit);
           if (article.get("code") || new_article.find(/<code>/i)) {
             code_kind = (_ref3 = article.get("code")) != null ? _ref3 : "coffeescript";
             new_article.find('pre').addClass("prettyprint");

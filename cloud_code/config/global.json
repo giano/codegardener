@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "codegardener"
+        }, 
+        "codegardener": {
+            "applicationId": "AVv5O6z1eS96ZO5rnMRecr1x4L0JUASLlUefmZ7m", 
+            "masterKey": "o8Q8VY9GQh7q93Po0UdgTDZD5BijyNiDSv8Uwd4L"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.16"
+    }
+}

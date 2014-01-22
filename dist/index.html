@@ -6,30 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Garden</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/6b0b38d8.main.css">
+    <link rel="stylesheet" href="styles/8cf92506.main.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <script src="scripts/9dfcc0d3.modernizr.js"></script>
   </head>
   <body>
     <div class="templates">
       <script type="text/x-handlebars-template" id="article_template">
-        <li class="{{class}}">
+        <li class="{{class}} clearfix">
           <div class="timeline-badge"><i class="{{icon}}"></i></div>
-          <article class="timeline-panel">
-            <div class="timeline-heading">
-              <h2 class="timeline-title">{{{title}}}</h2>
-              <div class="time-border"><i class="fa fa-calendar"></i>
-                <time pubdate="pubdate" title="{{ago}}">&nbsp;{{pubdate}}</time>
+          <div class="timeline-panel">
+            <article>
+              <div class="timeline-heading">
+                <h2 class="timeline-title">{{{title}}}</h2>
+                <div class="time-border"><i class="fa fa-calendar"></i>
+                  <time pubdate="pubdate" title="{{ago}}">&nbsp;{{pubdate}}</time>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <div class="body-snippet">{{{body_snippet}}}</div>
+                <div class="body">{{{body}}}</div>
+              </div>
+              <div class="bk-image"></div>
+            </article>
+          </div>
+        </li>
+        <script type="text/x-handlebars-template" id="profile_template">
+          <div profile="http://microformats.org/wiki/hcard" class="col-xs-12 col-sm-6 col-md-6 vcard">
+            <div class="well well-sm">
+              <div class="row">
+                <div class="col-sm-6 col-md-4"><img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive"></div>
+                <div class="col-sm-6 col-md-8">
+                  <h4>{{name}}</h4><small>
+                    <cite title="{{city}}">{{city}}<i class="glyphicon glyphicon-map-marker"></i></cite></small>
+                  <p><i class="glyphicon glyphicon-envelope"></i>{{email}}<br><i class="glyphicon glyphicon-globe"></i><a href="{{url}}">{{url}}</a><br><i class="glyphicon glyphicon-gift"></i>{{birthday}}</p>
+                  <!--
+                  <Split>button</Split>
+                  -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Social</button>
+                    <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span><span class="sr-only">Social</span></button>
+                    <ul role="menu" class="dropdown-menu">{{#each social}}
+                      <li><a href="{{this.link}}">{{this.name}}</a></li>{{/each}}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="timeline-body">
-              <div class="body-snippet">{{{body_snippet}}}</div>
-              <div class="body">{{{body}}}</div>
-            </div>
-            <div class="bk-image"></div>
-          </article>
-        </li>
-      </script>
+          </div>
+        </script>
+      
       <script type="text/x-handlebars-template" id="flower_template">
         <div class="flower-template">
           <div class="flower"><img src="/img/f_shadow.png" class="dot">
@@ -90,7 +116,7 @@
     </header>
     <div id="wrap">
       <div class="container news-cont">
-        <div id="articles" class="ul timeline"></div>
+        <ul id="articles" class="timeline"></ul>
       </div>
     </div>
     <footer class="footer">
@@ -105,6 +131,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
-    <script src="scripts/8029fb2d.home.js"></script>
+    <script src="scripts/73fd313e.home.js"></script>
   </body>
 </html>
