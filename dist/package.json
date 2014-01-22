@@ -1,7 +1,8 @@
 {
   "name": "codegardener",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "dependencies": {
-    "statik": "~1.2.5"
+    "statik": "~1.2.5",
+    "newrelic": "~1.3.0"
   }
 }
