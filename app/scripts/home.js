@@ -12,7 +12,7 @@ $(function() {
     $("body").removeClass("reading");
     return $(".parallax").parallax("enable");
   };
-  $(".parallax").on("touchend", on_exit);
+  $(".parallax").on("mouseenter", "touchstart", on_exit);
   marked_settings = {
     gfm: true,
     tables: true,
@@ -46,7 +46,7 @@ $(function() {
             pubdate: moment(article.get("pubdate")).format("L LT"),
             ago: moment(article.get("pubdate")).fromNow()
           });
-          new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit).on("touchend", on_hover);
+          new_article = $(new_article).appendTo("#articles").find("article").first().on("mouseenter", "touchstart", on_hover).on("mouseleave", on_exit);
           if (article.get("code") || new_article.find(/<code>/i)) {
             code_kind = (_ref3 = article.get("code")) != null ? _ref3 : "coffeescript";
             new_article.find('pre').addClass("prettyprint");
