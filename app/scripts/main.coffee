@@ -1,5 +1,3 @@
-Parse.initialize("AVv5O6z1eS96ZO5rnMRecr1x4L0JUASLlUefmZ7m", "fjpd9F6ECYZMvbqETnX6sCajCoKF4Q1fabWq9Rru")
-
 $(->
 	$(".parallax").parallax
 		limitY:50

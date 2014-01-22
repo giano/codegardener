@@ -1,5 +1,6 @@
 node_modules
 .tmp
 app/bower_components
+app/scripts/config.*
 test/bower_components
 .DS_Store
