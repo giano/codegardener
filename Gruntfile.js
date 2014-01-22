@@ -111,7 +111,7 @@ module.exports = function (grunt) {
                 files: [{
                     dot: false,
                     src: [
-                        '<%= yeoman.app %>/index.html'
+                        '<%= yeoman.app %>/*.html'
                     ]
                 }]
             }
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= yeoman.dist %>'
             },
-            html: '<%= yeoman.app %>/index.html'
+            html: '<%= yeoman.app %>/*.html'
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -383,7 +383,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.app %>',
-                    src: 'index.jade',
+                    src: '*.jade',
                     ext: '.html'
                 }]
             }
