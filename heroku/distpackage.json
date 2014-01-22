@@ -1,6 +1,6 @@
 {
   "name": "codegardener",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "statik": "~1.2.5"
   }
