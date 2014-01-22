@@ -11,6 +11,8 @@ $(->
         $("body").removeClass("reading")
         $(".parallax").parallax("enable")
 
+    $(".parallax").on("touchstart", on_exit)
+
     marked_settings =
         gfm:true
         tables:true
@@ -36,7 +38,7 @@ $(->
                         pubdate: moment(article.get("pubdate")).format("L LT")
                         ago: moment(article.get("pubdate")).fromNow()
 
-                    new_article = $(new_article).appendTo("#articles").find("article").first().on('mouseenter touchstart',on_hover).on('mouseleave touchend',on_exit)
+                    new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit).on("touchstart", on_hover)
 
                     if article.get("code") or new_article.find(/<code>/i)
                         code_kind = article.get("code") ? "coffeescript"
