@@ -3,16 +3,6 @@ $(->
     news_temp_html = $("#article_template").html()
     template = Handlebars.compile(news_temp_html)
 
-    on_hover = ->
-        $("body").addClass("reading")
-        $(".parallax").parallax("disable")
-
-    on_exit = ->
-        $("body").removeClass("reading")
-        $(".parallax").parallax("enable")
-
-    $(".parallax").on("touchend", on_exit)
-
     marked_settings =
         gfm:true
         tables:true
@@ -37,6 +27,14 @@ $(->
                         width: article.get("width") ? 12
                         pubdate: moment(article.get("pubdate")).format("L LT")
                         ago: moment(article.get("pubdate")).fromNow()
+
+                    on_hover = ->
+                        $("body").addClass("reading")
+                        $(".parallax").parallax("disable")
+
+                    on_exit = ->
+                        $("body").removeClass("reading")
+                        $(".parallax").parallax("enable")
 
                     new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit)
 
