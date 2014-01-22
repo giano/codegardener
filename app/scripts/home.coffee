@@ -3,6 +3,14 @@ $(->
     news_temp_html = $("#article_template").html()
     template = Handlebars.compile(news_temp_html)
 
+    on_hover = ->
+        $("body").addClass("reading")
+        $(".parallax").parallax("disable")
+
+    on_exit = ->
+        $("body").removeClass("reading")
+        $(".parallax").parallax("enable")
+
     marked_settings =
         gfm:true
         tables:true
@@ -28,14 +36,7 @@ $(->
                         pubdate: moment(article.get("pubdate")).format("L LT")
                         ago: moment(article.get("pubdate")).fromNow()
 
-                    on_hover = ->
-                        $("body").addClass("reading")
-                        $(".parallax").parallax("disable")
-                    on_exit = ->
-                        $("body").removeClass("reading")
-                        $(".parallax").parallax("enable")
-
-                    new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit)
+                    new_article = $(new_article).appendTo("#articles").find("article").first().on('mouseenter touchstart',on_hover).on('mouseleave touchend',on_exit)
 
                     if article.get("code") or new_article.find(/<code>/i)
                         code_kind = article.get("code") ? "coffeescript"
