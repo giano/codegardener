@@ -3,10 +3,10 @@ Parse.Cloud.job("wake", function(request, status) {
   Parse.Cloud.httpRequest({
       url: 'http://www.codegarden.it/wake.html',
       success: function(httpResponse) {
-
+        status.success("ok");
       },
       error: function(httpResponse) {
-
+        status.error("error")
       }
     });
 });
