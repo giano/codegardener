@@ -4,19 +4,17 @@ header.header
 			.navbar-header
 				button.navbar-toggle(type='button', data-toggle='collapse', data-target='#collapse')
 					span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
 
-				a.navbar-brand
-					img(src='/img/logo.png', srcset='/img/logo.png@2x 2x')
+				a(href='/').navbar-brand
+					img(src='/img/logo.png', srcset='/img/logo.png 1x, /img/logo.png@2x 2x')
 					h1 Code Garden
 
 			#collapse.collapse.navbar-collapse
 				ul.nav.navbar-nav.navbar-right
-					li.active
-						a(href='#') Link
-					li
-						a(href='#') Link
-					li
-						a(href='#') Who?
+					li(class=(current_page == "index" ? "active": null))
+						a(href='/') Home
+					li(class=(current_page == "about" ? "active": null))
+						a(href='/about.html') About

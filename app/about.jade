@@ -1,4 +1,4 @@
-- var current_page = "index"
+- var current_page = "about"
 
 doctype 5
 html.no-js(lang='en')
@@ -10,13 +10,13 @@ html.no-js(lang='en')
         include modules/header
 
         #wrap
-            div.container.news-cont
-                .ul#articles.timeline
+            div.container.who-cont
+                .row#who
 
 
         include modules/footer
 
         include modules/scripts
-        // build:js scripts/home.js
-        script(src='scripts/home.js')
+        // build:js scripts/about.js
+        script(src='scripts/about.js')
         // endbuild

@@ -1,14 +1,16 @@
 .templates
 
     script(type="text/x-handlebars-template")#article_template
-        div(class="col-md-{{width}}")
-            article
-                .time-border
+        li(class="{{class}}")
+            .timeline-badge
+                i(class="{{icon}}")
+              article.timeline-panel
+                .timeline-heading
+                  h2.timeline-title {{{title}}}
+                  .time-border
                     i.fa.fa-calendar
                     time(pubdate="pubdate", title="{{ago}}") &nbsp;{{pubdate}}
-                .a-content
-                    header
-                        h1 {{{title}}}
+                .timeline-body
                     .body-snippet
                         {{{body_snippet}}}
                     .body
