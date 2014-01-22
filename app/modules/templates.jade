@@ -18,41 +18,49 @@
                             {{{body}}}
                     .bk-image
 
-        script(type="text/x-handlebars-template")#profile_template
-            .col-xs-12.col-sm-6.col-md-6(profile="http://microformats.org/wiki/hcard", class="vcard")
+    script(type="text/x-handlebars-template")#profile_template
+        .row.profile
+            .col-xs-12.col-sm-12.col-md-12(profile="http://microformats.org/wiki/hcard", class="vcard")
                 .well.well-sm
                     .row
-                      .col-sm-6.col-md-4
-                        img.img-rounded.img-responsive(src='http://placehold.it/380x500', alt='')
-                      .col-sm-6.col-md-8
-                        h4
-                          | {{name}}
-                        small
-                          cite(title="{{city}}")
-                            | {{city}}
-                            i.glyphicon.glyphicon-map-marker
-                        p
-                          i.glyphicon.glyphicon-envelope
-                          | {{email}}
-                          br
-                          i.glyphicon.glyphicon-globe
-                          a(href="{{url}}") {{url}}
-                          br
-                          i.glyphicon.glyphicon-gift
-                          | {{birthday}}
-                        //
-                           Split button
-                        .btn-group
-                          button.btn.btn-primary(type='button')
-                            | Social
-                          button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-                            span.caret
-                            span.sr-only Social
-                          ul.dropdown-menu(role='menu')
-                            {{#each social}}
-                            li
-                              a(href="{{this.link}}") {{this.name}}
-                            {{/each}}
+                        .a-content
+                            .col-sm-6.col-md-4
+                                img.img-rounded.img-responsive(src='{{image}}', alt='')
+                            .col-sm-6.col-md-8
+                                h2
+                                  | {{real_name}}
+                                small
+                                  cite(title="{{city}}") {{city}}&nbsp;
+                                    i.fa.fa-map-marker
+                                p
+                                  i.fa.fa-envelope
+                                  a(href="mailto:{{email}}") &nbsp;{{email}}
+                                  br
+                                  i.fa.fa-globe
+                                  a(href="{{url}}", target="_blank") &nbsp;{{url}}
+                                  br
+                                  i.glyphicon.glyphicon-gift
+                                  | &nbsp;{{birthday}}
+
+                                {{#if social}}
+                                .btn-group
+                                    button.btn.btn-primary(type='button') Social
+                                    button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                                        span.caret
+                                        span.sr-only Social
+                                    ul.dropdown-menu(role='menu')
+                                        {{#each social}}
+                                        li
+                                          a(href="{{this.link}}", target="_blank")
+                                            i(class="fa-{{icon}}").fa
+                                            | &nbsp;{{this.name}}
+                                        {{/each}}
+                                {{/if}}
+                                hr
+                                h4 Description
+                                p {{{description}}}
+                        .bk-image
+
 
     script(type="text/x-handlebars-template")#flower_template
         .flower-template

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Garden</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/8cf92506.main.css">
+    <link rel="stylesheet" href="styles/ef017544.main.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <script src="scripts/9dfcc0d3.modernizr.js"></script>
   </head>
@@ -31,31 +31,36 @@
             </article>
           </div>
         </li>
-        <script type="text/x-handlebars-template" id="profile_template">
-          <div profile="http://microformats.org/wiki/hcard" class="col-xs-12 col-sm-6 col-md-6 vcard">
+      </script>
+      <script type="text/x-handlebars-template" id="profile_template">
+        <div class="row profile">
+          <div profile="http://microformats.org/wiki/hcard" class="col-xs-12 col-sm-12 col-md-12 vcard">
             <div class="well well-sm">
               <div class="row">
-                <div class="col-sm-6 col-md-4"><img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive"></div>
-                <div class="col-sm-6 col-md-8">
-                  <h4>{{name}}</h4><small>
-                    <cite title="{{city}}">{{city}}<i class="glyphicon glyphicon-map-marker"></i></cite></small>
-                  <p><i class="glyphicon glyphicon-envelope"></i>{{email}}<br><i class="glyphicon glyphicon-globe"></i><a href="{{url}}">{{url}}</a><br><i class="glyphicon glyphicon-gift"></i>{{birthday}}</p>
-                  <!--
-                  <Split>button</Split>
-                  -->
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Social</button>
-                    <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span><span class="sr-only">Social</span></button>
-                    <ul role="menu" class="dropdown-menu">{{#each social}}
-                      <li><a href="{{this.link}}">{{this.name}}</a></li>{{/each}}
-                    </ul>
+                <div class="a-content">
+                  <div class="col-sm-6 col-md-4"><img src="{{image}}" alt="" class="img-rounded img-responsive"></div>
+                  <div class="col-sm-6 col-md-8">
+                    <h2>{{real_name}}</h2><small>
+                      <cite title="{{city}}">{{city}}&nbsp;<i class="fa fa-map-marker"></i></cite></small>
+                    <p><i class="fa fa-envelope"></i><a href="mailto:{{email}}">&nbsp;{{email}}</a><br><i class="fa fa-globe"></i><a href="{{url}}" target="_blank">&nbsp;{{url}}</a><br><i class="glyphicon glyphicon-gift"></i>&nbsp;{{birthday}}</p>{{#if social}}
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary">Social</button>
+                      <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span><span class="sr-only">Social</span></button>
+                      <ul role="menu" class="dropdown-menu">{{#each social}}
+                        <li><a href="{{this.link}}" target="_blank"><i class="fa-{{icon}} fa"></i>&nbsp;{{this.name}}</a></li>{{/each}}
+                      </ul>
+                    </div>{{/if}}
+                    <hr>
+                    <h4>Description</h4>
+                    <p>{{{description}}}</p>
                   </div>
                 </div>
+                <div class="bk-image"></div>
               </div>
             </div>
           </div>
-        </script>
-      
+        </div>
+      </script>
       <script type="text/x-handlebars-template" id="flower_template">
         <div class="flower-template">
           <div class="flower"><img src="/img/f_shadow.png" class="dot">
