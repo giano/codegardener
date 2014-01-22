@@ -1,7 +1,7 @@
 'use strict';
 require('newrelic');
-var statik = require('statik');
-var server = statik.createServer('.', {
+var static = require('node-static');
+var server = static.Server('.', {
     cache: 7200,
     gzip: true
 });
