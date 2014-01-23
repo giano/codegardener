@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "example_config.js",
+  "sourceRoot": "",
+  "sources": [
+    "example_config.coffee"
+  ],
+  "names": [],
+  "mappings": ";AACA,CAAM,CAAkB,GAAnB,GAAL,EAAA"
+}
