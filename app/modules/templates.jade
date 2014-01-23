@@ -1,29 +1,55 @@
 .templates
 
+    script(type="text/x-handlebars-template")#full_article_template
+        article.full
+            .bk-image
+            .gesture-bk
+            .time-border
+                i.fa.fa-calendar
+                time(pubdate="pubdate", title="{{ago}}") &nbsp;{{pubdate}}
+            .a-content
+                ol.breadcrumb
+                    li
+                        a(href="/") Home
+                    li.active {{{title}}}
+                .timeline-heading
+                  h2.timeline-title {{{title}}}
+
+                .timeline-body
+                    {{{body}}}
+
     script(type="text/x-handlebars-template")#article_template
         li(class="{{class}}").clearfix
             .timeline-badge
                 i(class="{{icon}}")
             .timeline-panel
                 article
+                    .bk-image
                     .gesture-bk
-                    .timeline-heading
-                      h2.timeline-title {{{title}}}
-                      .time-border
+                    .time-border
                         i.fa.fa-calendar
                         time(pubdate="pubdate", title="{{ago}}") &nbsp;{{pubdate}}
-                    .timeline-body
-                        .body-snippet
-                            {{{body_snippet}}}
-                        .body
-                            {{{body}}}
-                    .bk-image
+                    .a-content
+                        .timeline-heading
+                          h2.timeline-title
+                            a(href="{{link}}") {{{title}}}
+
+                        .timeline-body
+                            .body-snippet
+                                {{{body_snippet}}}
+                            .body
+                                {{{body}}}
 
     script(type="text/x-handlebars-template")#profile_template
         .row.profile
+            .bk-image
             .gesture-bk
             .col-xs-12.col-sm-12.col-md-12(profile="http://microformats.org/wiki/hcard", class="vcard")
                 .well.well-sm
+                    ol.breadcrumb
+                        li
+                            a(href="/") Home
+                        li.active {{real_name}}
                     .row
                         .a-content
                             .col-sm-6.col-md-4
@@ -61,7 +87,7 @@
                                 hr
                                 h4 Description
                                 p {{{description}}}
-                        .bk-image
+
 
 
     script(type="text/x-handlebars-template")#flower_template

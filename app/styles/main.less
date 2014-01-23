@@ -47,6 +47,14 @@ footer.footer{
     background: @navbar-default-bg;
     height: @footer-total-height;
 }
+.well{
+    background: transparent;
+    padding:0;
+    border:none;
+}
+pre{
+    margin: 20px 0;
+}
 div.parallax{
     width:110%;
     height:110%;
@@ -209,7 +217,7 @@ div.c-back .background_container{
 }
 
 pre{
-    background: rgba(0,0,0,0.4) !important;
+    background: rgba(0,0,0,0.7) !important;
     border:none !important;
     box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3);
 }
@@ -233,7 +241,14 @@ pre{
     height: 100%;
     display: block;
 }
-#articles article, .profile .well{
+article a, article a:hover{
+    color:#ffffff;
+}
+ol.breadcrumb{
+    background: transparent;
+    border-bottom: solid 1px rgba(255,255,255,0.4);
+}
+article, .profile{
     color:#fff;
     padding: 1.5em;
     position: relative;
@@ -245,7 +260,7 @@ pre{
     box-sizing: border-box;
 }
 
-#articles article .time-border{
+article .time-border{
     float: right;
     position:absolute;
     bottom:1em;
@@ -253,29 +268,30 @@ pre{
     font-family:@font-family-sans-serif;
     font-size:small;
 }
-#articles article header h1{
+article header h1{
     margin-top:0px;
 }
-#articles article .body-snippet, #articles article .body{
+
+article .body-snippet, article .body{
     margin-bottom: 1.5em;
 }
-#articles article .body{
+article .body{
     display: none;
 }
 
-#articles article.focused .body{
+article.focused .body{
     display: block;
 }
-#articles article.focused .body-snippet{
+article.focused .body-snippet{
     display:none;
 }
-#articles article p{
+article p{
     font-family:@font-family-sans-serif;
 }
-#articles article.focused{
+article.focused{
     background:#2e2925;
 }
-#articles article.with-photo .bk-image, .profile.with-photo .bk-image{
+article.with-photo .bk-image, .profile.with-photo .bk-image{
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center center;
@@ -295,20 +311,20 @@ pre{
     opacity:0.1;
     filter: blur(16px);
 }
-.profile{
+.profile, article.full{
     margin-top: 20px;
 }
-#articles article.with-photo .a-content, .profile.with-photo .a-content{
+article.with-photo .a-content, .profile.with-photo .a-content{
     transition: all 0.3s linear;
     opacity:0.7;
     position: relative;
     z-index: 1;
 }
-#articles article.with-photo.focused .bk-image{
+article.with-photo.focused .bk-image, article.with-photo.full .bk-image{
     opacity:0.3;
     filter: blur(16px);
 }
-#articles article.with-photo.focused .a-content, .profile.with-photo.focused .a-content{
+article.with-photo.focused .a-content, .profile.with-photo.focused .a-content, article.with-photo.full .a-content{
     opacity:1;
     filter: blur(0px);
 }

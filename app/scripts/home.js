@@ -35,7 +35,8 @@ $(function() {
             body_snippet: md_body_snippet,
             width: (_ref2 = article.get("width")) != null ? _ref2 : 12,
             pubdate: moment(article.get("pubdate")).format("L LT"),
-            ago: moment(article.get("pubdate")).fromNow()
+            ago: moment(article.get("pubdate")).fromNow(),
+            link: "/article.html?id=" + article.id
           });
           new_article = $(new_article_txt).appendTo("#articles").find("article").first();
           if (article.get("code") || new_article.find(/<code>/i)) {
