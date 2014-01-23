@@ -23,14 +23,10 @@ $(->
                 social: profile.get("social") ? null
                 description: profile_desc
 
-            on_hover = ->
-                $("body").addClass("reading")
-                $(".parallax").parallax("disable")
-            on_exit = ->
-                $("body").removeClass("reading")
-                $(".parallax").parallax("enable")
+            new_profile = $(new_profile).appendTo("#about").first()
 
-            new_profile = $(new_profile).appendTo("#about").first().hover(on_hover, on_exit)
+            $.attach_focus_events(new_profile[0])
+
             new_profile.addClass("with-photo").find(".bk-image").css("background-image","url('#{profile.get("image")}')") if profile.get("image")
 
 

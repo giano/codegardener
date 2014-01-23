@@ -22,11 +22,11 @@ $(function() {
       for (i = _i = 0, _len = news.length; _i < _len; i = ++_i) {
         article = news[i];
         _results.push((function(article) {
-          var code_kind, md_body, md_body_snippet, md_title, new_article, on_exit, on_hover, _ref, _ref1, _ref2, _ref3;
+          var code_kind, md_body, md_body_snippet, md_title, new_article, new_article_txt, _ref, _ref1, _ref2, _ref3;
           md_body = marked(article.get("body"));
           md_body_snippet = marked((_ref = article.get("body_snippet")) != null ? _ref : _.str.prune(article.get("body"), 144));
           md_title = $(marked(article.get("title"))).html();
-          new_article = template({
+          new_article_txt = template({
             title: md_title,
             icon: (_ref1 = article.get("icon")) != null ? _ref1 : "fa fa-code",
             "class": i % 2 === 1 ? "timeline-inverted" : "timeline-standard",
@@ -37,23 +37,16 @@ $(function() {
             pubdate: moment(article.get("pubdate")).format("L LT"),
             ago: moment(article.get("pubdate")).fromNow()
           });
-          on_hover = function() {
-            $("body").addClass("reading");
-            return $(".parallax").parallax("disable");
-          };
-          on_exit = function() {
-            $("body").removeClass("reading");
-            return $(".parallax").parallax("enable");
-          };
-          new_article = $(new_article).appendTo("#articles").find("article").first().hover(on_hover, on_exit);
+          new_article = $(new_article_txt).appendTo("#articles").find("article").first();
           if (article.get("code") || new_article.find(/<code>/i)) {
             code_kind = (_ref3 = article.get("code")) != null ? _ref3 : "coffeescript";
             new_article.find('pre').addClass("prettyprint");
             prettyPrint(new_article[0]);
           }
           if (article.get("image")) {
-            return new_article.addClass("with-photo").find(".bk-image").css("background-image", "url('" + (article.get("image")) + "')");
+            new_article.addClass("with-photo").find(".bk-image").css("background-image", "url('" + (article.get("image")) + "')");
           }
+          return $.attach_focus_events(new_article[0]);
         })(article));
       }
       return _results;

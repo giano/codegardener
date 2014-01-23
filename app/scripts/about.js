@@ -17,7 +17,7 @@ $(function() {
     }
     query = new Parse.Query(Profile).equalTo("username", username);
     return query.first().then(function(profile) {
-      var new_profile, on_exit, on_hover, profile_desc, _ref, _ref1, _ref2;
+      var new_profile, profile_desc, _ref, _ref1, _ref2;
       profile_desc = marked((_ref = profile.get("description")) != null ? _ref : "");
       new_profile = template({
         image: profile.get("image"),
@@ -29,15 +29,8 @@ $(function() {
         social: (_ref2 = profile.get("social")) != null ? _ref2 : null,
         description: profile_desc
       });
-      on_hover = function() {
-        $("body").addClass("reading");
-        return $(".parallax").parallax("disable");
-      };
-      on_exit = function() {
-        $("body").removeClass("reading");
-        return $(".parallax").parallax("enable");
-      };
-      new_profile = $(new_profile).appendTo("#about").first().hover(on_hover, on_exit);
+      new_profile = $(new_profile).appendTo("#about").first();
+      $.attach_focus_events(new_profile[0]);
       if (profile.get("image")) {
         return new_profile.addClass("with-photo").find(".bk-image").css("background-image", "url('" + (profile.get("image")) + "')");
       }
